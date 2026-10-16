@@ -5,7 +5,7 @@
  */
 
 import { describe, expect, it } from "vitest";
-import { isDocUrl } from "../shared/ts/lib/docUrl";
+import { isDocUrl, switchedUrl } from "../shared/ts/lib/docUrl";
 import { extractPage } from "../shared/ts/lib/extract";
 import { site } from "./site";
 
@@ -22,7 +22,13 @@ describe("React site profile", () => {
   it("is a Japanese site, so the app does not translate it", () => {
     expect(site.japanese).toBe(true);
     expect(isDocUrl(site.homeUrl, site)).toBe(true);
-    expect(isDocUrl("https://react.dev/learn", site)).toBe(false);
+  });
+
+  it("opens the English site too, and switches the page between the two", () => {
+    expect(site.alt?.host).toBe("react.dev");
+    expect(isDocUrl("https://react.dev/learn", site)).toBe(true);
+    expect(switchedUrl("https://ja.react.dev/learn#a", site)).toBe("https://react.dev/learn#a");
+    expect(switchedUrl("https://react.dev/learn", site)).toBe("https://ja.react.dev/learn");
   });
 
   it("takes the article, strips the site name, and makes the links absolute", () => {

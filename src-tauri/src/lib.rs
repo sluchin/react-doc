@@ -9,6 +9,7 @@ use doc_translator_core::Site;
 /// 取得するサイト (TypeScript 側の `src/site.ts` と, ホストを同じにする).
 const SITE: Site = Site {
     host: "ja.react.dev",
+    alt_host: Some("react.dev"),
     user_agent: "react-doc/0.1 (+https://github.com/sluchin/react-doc)",
 };
 

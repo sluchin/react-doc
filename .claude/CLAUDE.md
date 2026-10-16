@@ -17,7 +17,7 @@ React の日本語のドキュメント (https://ja.react.dev/) を表示する�
 
 ## セキュリティの決まり (守ること)
 
-- 取得するのは `https://ja.react.dev/` だけ (`docs.rs` の `is_doc_url`、`lib/docUrl.ts` の `isDocUrl`)。リダイレクトも、そのホストの中だけ。ほかのリンクはブラウザで開く。
+- 取得するのは `https://ja.react.dev/` と `https://react.dev/` だけ (`docs.rs` の `is_doc_url`、`lib/docUrl.ts` の `isDocUrl`)。リダイレクトも、そのホストの中だけ。ほかのリンクはブラウザで開く。
 - 表示する HTML は取得したものも、翻訳されたものも、必ず `sanitize()` (DOMPurify) を通す。`dangerouslySetInnerHTML` に渡すのはその結果だけ。
 - CSP (`tauri.conf.json`) は画像を `ja.react.dev` と `data:` だけに限る。広げない。
 - ドキュメントの文章をリポジトリに置かない (テストの HTML は作り物)。ページの取得は利用者がリンクを開いたときだけ (事前の取得、巡回はしない)。名前を名乗る User-Agent を付ける。
@@ -47,9 +47,9 @@ React の日本語のドキュメント (https://ja.react.dev/) を表示する�
 
 - 英語の `react.dev` ではなく、日本語の `ja.react.dev` を開く。日本語に訳されていないページは、サイトの側で英語のまま出る (翻訳は、しない)。
 - 本文は `main article`。ページの `button` (ページのコピーなど) は取り除く。コードの例 (Sandpack) は、サーバーが HTML に出す分だけが出る (編集と実行はできない)。
-- 開くのは `https://ja.react.dev/` の全てのページ (`pathPrefix` は `/`)。最初のページは `/learn`。
+- 開くのは `https://ja.react.dev/` と、英語のサイト `https://react.dev/` の全てのページ (`pathPrefix` は `/`)。最初のページは `/learn`。ツールバーのボタンで、今のページを、もう一方のホストの同じパスに切り替える (`SiteProfile` の `alt`、Rust の `Site` の `alt_host`。ページごと。英語のページも翻訳しない)。
 - アイコンはオリジナル (青緑の R)。**React のロゴを使わない。**
-- 画像の CSP は `ja.react.dev` だけ。ほかのホストの画像が出ないときは `tauri.conf.json` の CSP に足す (理由をコメントに書く)。
+- 画像の CSP は `ja.react.dev` と `react.dev` だけ。ほかのホストの画像が出ないときは `tauri.conf.json` の CSP に足す (理由をコメントに書く)。
 
 ## 実機で未確認
 
