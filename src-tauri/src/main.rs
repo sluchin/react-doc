@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    react_doc_lib::run()
+    react_doc_trans_lib::run()
 }

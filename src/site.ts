@@ -8,7 +8,7 @@ import type { SiteProfile } from "../shared/ts/lib/profile";
 
 /** React の日本語のドキュメント (ja.react.dev) の設定. 日本語のサイトなので, 翻訳しない. 英語のサイトへ, ページごとに切り替えられる. 本文は article. */
 export const site: SiteProfile = {
-  name: "React Doc",
+  name: "React Doc Trans",
   host: "ja.react.dev",
   pathPrefix: "/",
   homeUrl: "https://ja.react.dev/learn",

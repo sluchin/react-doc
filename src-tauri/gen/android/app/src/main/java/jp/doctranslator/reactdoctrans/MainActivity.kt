@@ -1,4 +1,4 @@
-package jp.sluchin.reactdoc
+package jp.doctranslator.reactdoctrans
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
